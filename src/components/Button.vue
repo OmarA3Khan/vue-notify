@@ -1,18 +1,14 @@
 <template>
-    <button class="button">{{ buttonText || defaultText }}</button>
+    <button class="button">{{ buttonText }}</button>
 </template>
   
 <script>
   export default {
     name: 'CustomButton',
-    data() {
-        return {
-            defaultText: 'Click Me!',
-        }
-    },
     props: {
       buttonText: {
         type: String,
+        default: 'Click Me!',
         required: false,
       }
     }

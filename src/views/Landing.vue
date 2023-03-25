@@ -10,13 +10,19 @@
                 <p class="landing__subtitle">
                     Sign up now to get notified when this course is available!
                 </p>
-                <InputField class="landing__input" :placeholder="'Enter your Email Address'" />
+                <InputField
+                    id="email"
+                    class="landing__input"
+                    :label="'Enter your Email Address'"
+                    :submitBtnClicked="true"
+                    @invalidInput="(value) => disableBtn = value"
+                />
                 <div class="gradient-border">
-                    <Button class="landing__button" buttonText="Please Notify Me" />
+                    <Button @click="handleClick" :disabled="disableBtn" :class="{ disabled: disableBtn }" buttonText="Please Notify Me" />
                 </div>
             </div>
             <div class="col">
-                <div class="landing__carousel carousel">
+                <!-- <div class="landing__carousel carousel">
                     <img class="carousel__container" src="../assets/iPhone-mokup@3x.png" />
                     <img class="carousel__img" src="../assets/carousel-photo-01.jpg" />
                     <img class="carousel__camera-controls" src="../assets/FE-test-assets.svg" alt="SVG image" />
@@ -27,7 +33,8 @@
                         <li class="progress__bar"></li>
                         <li class="progress__bar"></li>
                     </ul>
-                </div>
+                </div> -->
+                <Carousel />
             </div>
         </div>
     </div>
@@ -37,13 +44,25 @@
   import Header from '../components/Header.vue';
   import Button from '../components/Button.vue';
   import InputField from '@/components/InputField.vue';
+  import Carousel from '@/components/Carousel.vue';
 
   export default {
     name: 'LandingPage',
+    data() {
+        return {
+            disableBtn: true,
+        }
+    },
     components: {
         Header,
         Button,
         InputField,
+        Carousel,
+    },
+    methods: {
+        handleClick() {
+            this.$router.push('/thankyou');
+        }
     }
   }
 </script>
@@ -65,6 +84,9 @@
         padding: 0 16px 63.5px 16px;
         @media (min-width: $desktop) {
             padding: 0 156px 0 156px;
+        }
+        .disabled {
+            background-color: green;
         }
         .container {
             display: flex;
@@ -101,10 +123,11 @@
             font-size: 40px;
             line-height: 48px;
             text-align: left;
-            margin: 0 0 32px 0;
+            margin: 0 0 16px 0;
             @media (min-width: $desktop) {
                 font-size: 63px;
                 line-height: 63px;
+                margin: 0 0 32px 0;
             }
         }
         &__subtitle {
@@ -112,59 +135,62 @@
             font-size: 22px;
             line-height: 30px;
             text-align: left;
-        }
-        .carousel {
-            position: relative;
-            padding: 0 10px;
-            &__container {
-                max-width: 98%;
-                @media (min-width: $desktop) {
-                    max-width: 335px;
-                }
-                margin-bottom: 30.5px;
-            }
-            &__img {
-                position: absolute;
-                top: 114px;
-                left: 26px;
-            }
-            &__camera-controls {
-                position: absolute;
-                top: 490px;
-                left: 115px;
-            }
-            &__img__sm {
-                position: absolute;
-                top: 574px;
-                left: 40px;
-            }
-            &__progress-indicator {
-                display: flex;
-                list-style: none;
-                margin: 0;
-                .progress__bar {
-                    width: 55px;
-                    height: 1px;
-                    background: #3A3A3A;
-                    border-radius: 1px;
-                    margin: 0 4px;
-                    position: relative;
-                    &.animate {
-                        &::before {
-                            content: '';
-                            display: block;
-                            height: 100%;
-                            max-width: 100%;
-                            background-color: #EEECEC;;
-                            border-radius: 1em;
-                            animation: fadin 8s;
-                        }
-                    }
-                }
+            margin: 0 0 28px 0;
+            @media (min-width: $desktop) {
+                margin: 0 0 16px 0;
             }
         }
+        // .carousel {
+        //     position: relative;
+        //     padding: 0 10px;
+        //     &__container {
+        //         max-width: 98%;
+        //         @media (min-width: $desktop) {
+        //             max-width: 335px;
+        //         }
+        //         margin-bottom: 30.5px;
+        //     }
+        //     &__img {
+        //         position: absolute;
+        //         top: 114px;
+        //         left: 26px;
+        //     }
+        //     &__camera-controls {
+        //         position: absolute;
+        //         top: 490px;
+        //         left: 115px;
+        //     }
+        //     &__img__sm {
+        //         position: absolute;
+        //         top: 574px;
+        //         left: 40px;
+        //     }
+        //     &__progress-indicator {
+        //         display: flex;
+        //         list-style: none;
+        //         margin: 0;
+        //         .progress__bar {
+        //             width: 55px;
+        //             height: 1px;
+        //             background: #3A3A3A;
+        //             border-radius: 1px;
+        //             margin: 0 4px;
+        //             position: relative;
+        //             &.animate {
+        //                 &::before {
+        //                     content: '';
+        //                     display: block;
+        //                     height: 100%;
+        //                     max-width: 100%;
+        //                     background-color: #EEECEC;;
+        //                     border-radius: 1em;
+        //                     animation: fadin 8s;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
         .pill,
-        &__subtitle,
         &__input {
             margin: 0 0 16px 0;
         }
@@ -192,13 +218,13 @@
         }
     }
   
-@keyframes fadin {
-  0% {
-    width: 1%;
-  }
-  100% {
-    width: 100%;
-  }
-}
+// @keyframes fadin {
+//   0% {
+//     width: 1%;
+//   }
+//   100% {
+//     width: 100%;
+//   }
+// }
 </style>
   
