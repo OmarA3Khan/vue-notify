@@ -27,6 +27,7 @@ export default {
 
 body {
   background-color: rgba(15, 15, 15, 1);
+  margin: 0;
 }
 
 .scale-enter-active,
