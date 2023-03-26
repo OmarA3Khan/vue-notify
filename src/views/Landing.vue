@@ -14,26 +14,11 @@
                     id="email"
                     class="landing__input"
                     :label="'Enter your Email Address'"
-                    :submitBtnClicked="true"
                     @invalidInput="(value) => disableBtn = value"
                 />
-                <div class="gradient-border">
-                    <Button @click="handleClick" :disabled="disableBtn" :class="{ disabled: disableBtn }" buttonText="Please Notify Me" />
-                </div>
+                <Button @click="handleClick" :disabled="disableBtn" buttonText="Please Notify Me" />
             </div>
             <div class="col">
-                <!-- <div class="landing__carousel carousel">
-                    <img class="carousel__container" src="../assets/iPhone-mokup@3x.png" />
-                    <img class="carousel__img" src="../assets/carousel-photo-01.jpg" />
-                    <img class="carousel__camera-controls" src="../assets/FE-test-assets.svg" alt="SVG image" />
-                    <img class="carousel__img__sm" src="../assets/small-carousel-photo-01.jpg" />
-                    <ul class="carousel__progress-indicator">
-                        <li class="progress__bar animate"></li>
-                        <li class="progress__bar"></li>
-                        <li class="progress__bar"></li>
-                        <li class="progress__bar"></li>
-                    </ul>
-                </div> -->
                 <Carousel />
             </div>
         </div>
@@ -67,26 +52,14 @@
   }
 </script>
   
-  <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style lang="scss" scoped>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
+@import "../base.scss";
     .landing {
-        // Breakpoint for screens larger than 1200px
-        $desktop: 1200px;
-
-        // Breakpoint for screens larger than 992px
-        $tablet: 992px;
-        // Breakpoint for iPad portrait orientation
-        $ipad: 768px;
-
-        // Breakpoint for iPad landscape orientation
-        $ipad-landscape: 1024px;
-        color: #EEECEC;
+        color: $white;
         padding: 0 16px 63.5px 16px;
         @media (min-width: $desktop) {
             padding: 0 156px 0 156px;
-        }
-        .disabled {
-            background-color: green;
         }
         .container {
             display: flex;
@@ -98,11 +71,15 @@
             .col {
                 display: flex;
                 flex-direction: column;
+                @media (min-width: $ipad) and (max-width: $desktop) {
+                    width: 50%;
+                    margin: auto;
+                }
                 .pill {
                     background: #2B5341;
                     border-radius: 32px;
                     padding: 8px 16px;
-                    font-weight: 600;
+                    font-weight: $font-weight-heavy;
                     font-size: 12px;
                     line-height: 12px;
                     letter-spacing: 2px;
@@ -119,7 +96,7 @@
         }
         &__title {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
+            font-weight: $font-weight-medium;
             font-size: 40px;
             line-height: 48px;
             text-align: left;
@@ -131,7 +108,7 @@
             }
         }
         &__subtitle {
-            font-weight: 400;
+            font-weight: $font-weight-medium;
             font-size: 22px;
             line-height: 30px;
             text-align: left;
@@ -140,91 +117,16 @@
                 margin: 0 0 16px 0;
             }
         }
-        // .carousel {
-        //     position: relative;
-        //     padding: 0 10px;
-        //     &__container {
-        //         max-width: 98%;
-        //         @media (min-width: $desktop) {
-        //             max-width: 335px;
-        //         }
-        //         margin-bottom: 30.5px;
-        //     }
-        //     &__img {
-        //         position: absolute;
-        //         top: 114px;
-        //         left: 26px;
-        //     }
-        //     &__camera-controls {
-        //         position: absolute;
-        //         top: 490px;
-        //         left: 115px;
-        //     }
-        //     &__img__sm {
-        //         position: absolute;
-        //         top: 574px;
-        //         left: 40px;
-        //     }
-        //     &__progress-indicator {
-        //         display: flex;
-        //         list-style: none;
-        //         margin: 0;
-        //         .progress__bar {
-        //             width: 55px;
-        //             height: 1px;
-        //             background: #3A3A3A;
-        //             border-radius: 1px;
-        //             margin: 0 4px;
-        //             position: relative;
-        //             &.animate {
-        //                 &::before {
-        //                     content: '';
-        //                     display: block;
-        //                     height: 100%;
-        //                     max-width: 100%;
-        //                     background-color: #EEECEC;;
-        //                     border-radius: 1em;
-        //                     animation: fadin 8s;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
         .pill,
         &__input {
             margin: 0 0 16px 0;
         }
 
-        .gradient-border {
-            width: 100%;
-            display: flex;
-            position: relative;
-            $border: 1px;
-            margin-bottom: 26px;
-            border-radius: 6px;
+        .button-container {
             @media (min-width: $desktop) {
                 width: 44%;
             }
-
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            z-index: -1;
-            margin: -$border;
-            border-radius: inherit;
-            background: linear-gradient(135deg, #D41C3D 0%, #861B83 100%);
-        }
         }
     }
-  
-// @keyframes fadin {
-//   0% {
-//     width: 1%;
-//   }
-//   100% {
-//     width: 100%;
-//   }
-// }
 </style>
   

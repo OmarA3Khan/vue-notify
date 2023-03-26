@@ -30,10 +30,6 @@
         default: 'label',
         required: false,
       },
-      submitBtnClicked: {
-        type: Boolean,
-        required: false,
-      },
     },
     data() {
       return {
@@ -41,7 +37,6 @@
         value: '',
         invalidInput: false,
         errorMessage: 'Please enter a valid email',
-        disableBtn: true,
       };
     },
     computed: {
@@ -60,6 +55,8 @@
 </script>
   
 <style lang="scss" scoped>
+@import "../base.scss";
+
   .form {
     position: relative;
     width: 100%;
@@ -70,36 +67,35 @@
       pointer-events: none;
       transition: transform 0.2s ease-out, font-size 0.2s ease-out;
       left: 16px;
-      color: #EEECEC;
-      font-weight: 400;
-      font-size: 16px;
+      color: $white;
+      font-weight: $font-weight-medium;
+      font-size: $font-size-base;
       line-height: 22px;
       &--active {
         transform: translateY(-1rem);
-        font-size: 12px;
-        color: #3A3A3A;
+        font-size: $font-size-base;
+        color: $dark-gray;
       }
       &.error{
-        color: #D41C3D;
+        color: $error;
       }
     }
   
     &__input {
-      color: #EEECEC;
-      font-size: 16px;
+      color: $white;
+      font-size: $font-size-base;
       padding: 0 0 0 16px;
       height: 62px;
       width: 98%;
       background: #171715;
-      border: 1px solid #3A3A3A;
+      border: 1px solid $dark-gray;
       border-radius: 6px;
       outline: none;
       &.error{
-        border: 1px solid #D41C3D;
+        border: 1px solid $error;
       }
     }
     &__icon {
-      color: #D41C3D;
       position: absolute;
       right: 4.25%;
     }

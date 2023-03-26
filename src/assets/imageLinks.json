@@ -1,0 +1,31 @@
+{
+  "imageLinks": [
+    {
+      "src": "carousel-photo-01.jpg",
+      "srcTwoX": "carousel-photo-01@2x.jpg",
+      "srcThreeX": "carousel-photo-01@3x.jpg"
+    },
+    {
+      "src": "carousel-photo-02.jpg",
+      "srcTwoX": "carousel-photo-02@2x.jpg",
+      "srcThreeX": "carousel-photo-02@3x.jpg"
+    },
+    {
+      "src": "carousel-photo-03.jpg",
+      "srcTwoX": "carousel-photo-03@2x.jpg",
+      "srcThreeX": "carousel-photo-03@3x.jpg",
+      "srcTiny": "carousel-photo-03.jpg",
+      "srcTinyTwoX": "carousel-photo-03@2x.jpg",
+      "srcTinyThreeX": "carousel-photo-03@3x.jpg"
+    },
+    {
+      "src": "carousel-photo-04.jpg",
+      "srcTwoX": "carousel-photo-04@2x.jpg",
+      "srcThreeX": "carousel-photo-04@3x.jpg",
+      "srcTiny": "carousel-photo-04.jpg",
+      "srcTinyTwoX": "carousel-photo-04@2x.jpg",
+      "srcTinyThreeX": "carousel-photo-04@3x.jpg"
+    }
+  ]
+}
+  

@@ -1,0 +1,21 @@
+$primary-color: linear-gradient(135deg, #D41C3D 0%, #861B83 100%);
+$secondary-color: #0F0F0F;
+$dark-gray: #3A3A3A;
+$error: #D41C3D;
+$white: #EEECEC;
+
+$font-weight-medium: 400;
+$font-weight-heavy: 600;
+
+$font-size-base: 16px;
+
+// Breakpoint for screens larger than 1200px
+$desktop: 1200px;
+
+// Breakpoint for screens larger than 992px
+$tablet: 992px;
+// Breakpoint for iPad portrait orientation
+$ipad: 768px;
+
+// Breakpoint for iPad landscape orientation
+$ipad-landscape: 1024px;
